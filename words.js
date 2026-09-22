@@ -417,5 +417,181 @@ window.WORDS = [
         "這張圖顯示了莖的縱切面。"
       ]
     ]
+  },
+  {
+    "id": "spatial",
+    "word": "spatial",
+    "part": "形容詞 · adjective",
+    "phonetic": "/ˈspeɪ.ʃəl/",
+    "meaning": "空間的；與位置、大小或空間關係有關的",
+    "english": "Relating to space and the positions, sizes, or arrangements of things.",
+    "examples": [
+      [
+        "Reading maps requires spatial awareness.",
+        "閱讀地圖需要空間感知能力。"
+      ],
+      [
+        "The test measures children's spatial ability.",
+        "這項測驗評估兒童的空間能力。"
+      ],
+      [
+        "The researchers examined the spatial distribution of settlements.",
+        "研究人員檢視了聚落的空間分布。"
+      ]
+    ]
+  },
+  {
+    "id": "correlate",
+    "word": "correlate",
+    "part": "及物／不及物動詞；名詞 · verb / noun",
+    "phonetic": "動詞 /ˈkɔːr.ə.leɪt/；名詞 /ˈkɔːr.ə.lət/",
+    "meaning": "動詞：相互關聯；找出…之間的關聯（correlate with）；名詞：相關事物、相關因素",
+    "english": "To be related or vary together, or to establish a relationship between things; as a noun, something associated with something else.",
+    "examples": [
+      [
+        "Higher income does not always correlate with greater happiness.",
+        "較高的收入不一定與更高的幸福感相關。"
+      ],
+      [
+        "The researchers correlated test scores with hours of practice.",
+        "研究人員分析了測驗分數與練習時數之間的關聯。"
+      ],
+      [
+        "The study examined a neural correlate of memory.",
+        "這項研究探討了與記憶相關的一項神經特徵。"
+      ]
+    ]
+  },
+  {
+    "id": "neuro",
+    "word": "neuro-",
+    "part": "字首／構詞成分 · prefix / combining form",
+    "phonetic": "/nʊr.oʊ/",
+    "meaning": "神經的；與神經系統有關的（常用來構成 neuroscience、neuroplasticity 等詞）",
+    "english": "A word-forming element meaning related to nerves or the nervous system.",
+    "examples": [
+      [
+        "The prefix neuro- refers to nerves or the nervous system.",
+        "字首 neuro- 指神經或神經系統。"
+      ],
+      [
+        "Neuroscience combines neuro- with science.",
+        "Neuroscience 由 neuro- 與 science 組成，意思是神經科學。"
+      ],
+      [
+        "In neuroplasticity, neuro- identifies the nervous system as the focus.",
+        "在 neuroplasticity（神經可塑性）一詞中，neuro- 表明其對象是神經系統。"
+      ]
+    ]
+  },
+  {
+    "id": "manipulation",
+    "word": "manipulation",
+    "part": "名詞 · noun",
+    "phonetic": "/məˌnɪp.jəˈleɪ.ʃən/",
+    "meaning": "操縱、操控；操作、處理；（用手進行的）調整、推拿",
+    "english": "Controlling or influencing people or information, often unfairly; skillfully handling or changing something; or moving body parts by hand.",
+    "examples": [
+      [
+        "The report exposed the manipulation of public opinion.",
+        "這份報告揭露了操縱輿論的行為。"
+      ],
+      [
+        "The software allows easy manipulation of images.",
+        "這套軟體讓影像處理變得容易。"
+      ],
+      [
+        "The therapist used gentle manipulation to move the patient's shoulder.",
+        "治療師以輕柔的手法活動患者的肩部。"
+      ]
+    ]
+  },
+  {
+    "id": "plasticity",
+    "word": "plasticity",
+    "part": "名詞 · noun",
+    "phonetic": "/plæˈstɪs.ə.ti/",
+    "meaning": "可塑性；塑性（受力後能保留變形的性質）；（大腦或行為的）改變、適應能力",
+    "english": "The ability to be shaped or changed; in neuroscience, the ability of the nervous system to change in response to experience.",
+    "examples": [
+      [
+        "The plasticity of clay makes it easy to shape into bowls.",
+        "黏土的可塑性使它很容易被塑造成碗。"
+      ],
+      [
+        "Brain plasticity allows neural connections to change with experience.",
+        "大腦的可塑性使神經連結能隨經驗而改變。"
+      ],
+      [
+        "The study explored plasticity in animal behavior.",
+        "這項研究探討了動物行為的可塑性。"
+      ]
+    ]
+  },
+  {
+    "id": "lobe",
+    "word": "lobe",
+    "part": "名詞 · noun",
+    "phonetic": "/loʊb/",
+    "meaning": "（器官的）葉；耳垂；（葉片等的）裂片、圓形突出部分",
+    "english": "A rounded part or division of an organ or structure, such as the brain, ear, or leaf.",
+    "examples": [
+      [
+        "The frontal lobe is involved in planning and decision-making.",
+        "額葉參與規劃與決策。"
+      ],
+      [
+        "She wore a small earring in each ear lobe.",
+        "她的兩邊耳垂各戴著一只小耳環。"
+      ],
+      [
+        "Each lobe of the leaf has a pointed tip.",
+        "這片葉子的每個裂片都有尖端。"
+      ]
+    ]
+  },
+  {
+    "id": "distinct",
+    "word": "distinct",
+    "part": "形容詞 · adjective",
+    "phonetic": "/dɪˈstɪŋkt/",
+    "meaning": "不同的、分別的（distinct from）；清楚的、明顯的；確切的、明確的",
+    "english": "Clearly different or separate; easy to notice; or definite and unmistakable.",
+    "examples": [
+      [
+        "The two words have distinct meanings.",
+        "這兩個單字有不同的意思。"
+      ],
+      [
+        "There was a distinct smell of smoke in the room.",
+        "房間裡有明顯的煙味。"
+      ],
+      [
+        "There is a distinct possibility that the schedule will change.",
+        "時程確實有可能變動。"
+      ]
+    ]
+  },
+  {
+    "id": "complementary",
+    "word": "complementary",
+    "part": "形容詞 · adjective",
+    "phonetic": "/ˌkɑːm.pləˈmen.tər.i/",
+    "meaning": "互補的、相輔相成的；（角度）互餘的（合計 90 度）。注意：complimentary 才是「免費贈送的／讚美的」",
+    "english": "Combining well because of different qualities; in geometry, describing angles whose measures add up to 90 degrees.",
+    "examples": [
+      [
+        "The two researchers have complementary skills.",
+        "這兩位研究人員的技能相輔相成。"
+      ],
+      [
+        "Reading and listening are complementary ways to learn a language.",
+        "閱讀與聆聽是互補的語言學習方式。"
+      ],
+      [
+        "Angles of thirty and sixty degrees are complementary.",
+        "三十度與六十度的角互為餘角。"
+      ]
+    ]
   }
 ];

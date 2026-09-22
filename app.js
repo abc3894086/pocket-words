@@ -29,7 +29,6 @@ function render(){
  $('position').textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');
  $('total').textContent=cards.length+' 張字卡';
  $('examples').replaceChildren(...c.examples.map(([en,zh])=>{const li=document.createElement('li');for(const [text,lang] of [[en,'en'],[zh,'zh-Hant']]){const p=document.createElement('p');p.textContent=text;p.lang=lang;li.append(p)}return li}));
- $('dots').replaceChildren(...cards.map((_,i)=>{const dot=document.createElement('i');dot.className=i===index?'active':'';return dot}));
  $('save-state').textContent='自動儲存';
  try{$('note').value=drafts.has(c.id)?drafts.get(c.id):(localStorage.getItem(key(c.id))||'')}catch{$('note').value=drafts.get(c.id)||'';$('save-state').textContent='無法儲存，請保留備註副本'}
  syncReveal();
