@@ -241,5 +241,71 @@ window.WORDS = [
         "經常練習有助於改善你的游泳技巧。"
       ]
     ]
+  },
+  {
+    "id": "retail",
+    "word": "retail",
+    "part": "名詞／形容詞／副詞／動詞 · noun / adjective / adverb / verb",
+    "phonetic": "/ˈriː.teɪl/",
+    "meaning": "零售；零售的；以零售方式；零售、以某價格零售",
+    "english": "The sale of goods directly to consumers; relating to or selling goods in this way.",
+    "examples": [
+      [
+        "She has worked in retail for five years.",
+        "她在零售業工作已經五年了。"
+      ],
+      [
+        "The retail price includes packaging and delivery.",
+        "零售價格包含包裝及配送費用。"
+      ],
+      [
+        "This jacket retails for eighty dollars.",
+        "這件外套的零售價是八十美元。"
+      ]
+    ]
+  },
+  {
+    "id": "expand",
+    "word": "expand",
+    "part": "及物／不及物動詞 · verb",
+    "phonetic": "/ɪkˈspænd/",
+    "meaning": "擴大、擴展；膨脹；詳細說明（expand on）",
+    "english": "To become or make something larger; to give more details about a topic.",
+    "examples": [
+      [
+        "The company plans to expand its business into new markets.",
+        "這家公司計畫將業務拓展至新的市場。"
+      ],
+      [
+        "Most metals expand when they are heated.",
+        "大多數金屬受熱時會膨脹。"
+      ],
+      [
+        "Could you expand on your suggestion?",
+        "你可以更詳細地說明你的建議嗎？"
+      ]
+    ]
+  },
+  {
+    "id": "recognition",
+    "word": "recognition",
+    "part": "名詞 · noun",
+    "phonetic": "/ˌrek.əɡˈnɪʃ.ən/",
+    "meaning": "認出、辨識；認可、肯定、表揚；承認、認識到",
+    "english": "The act of identifying someone or something, acknowledging a fact or status, or showing appreciation for an achievement.",
+    "examples": [
+      [
+        "The phone uses facial recognition to unlock the screen.",
+        "這支手機使用臉部辨識來解鎖螢幕。"
+      ],
+      [
+        "She received an award in recognition of her contribution to the project.",
+        "她獲頒獎項，以表揚她對這項專案的貢獻。"
+      ],
+      [
+        "There is growing recognition that regular exercise improves mental health.",
+        "人們愈來愈認識到，規律運動有助於改善心理健康。"
+      ]
+    ]
   }
 ];
