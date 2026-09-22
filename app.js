@@ -6,7 +6,7 @@ const drafts=new Map();
 const key=id=>'pocket-words:note:v1:'+id;
 function render(){
  stopPronunciation();
- const c=cards[index];expanded=false;
+ const c=cards[index];
  $('word').textContent=c.word;$('back-word').textContent=c.word;$('part').textContent=c.part;$('phonetic').textContent=c.phonetic;
  $('meaning').textContent=c.meaning;$('english').textContent=c.english;
  $('position').textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');
@@ -18,15 +18,72 @@ function render(){
  syncReveal();
 }
 function syncReveal(){if(!expanded)stopPronunciation();$('answer').hidden=!expanded;$('front').hidden=expanded;}
-function move(step){index=(index+step+cards.length)%cards.length;render()}
+let moving=false,dragX=0,suppressClickUntil=0;
+const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+async function slide(from,to,duration){
+ const card=$('card');
+ if(reduceMotion()||!card.animate){card.style.transform=to;return;}
+ const animation=card.animate([{transform:from},{transform:to}],{duration,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
+ try{await animation.finished;}catch{}finally{card.style.transform=to;animation.cancel();}
+}
+async function move(step){
+ if(moving)return;
+ moving=true;start=null;stopPronunciation();
+ const card=$('card'),distance=card.getBoundingClientRect().width+48;
+ const direction=step>0?-1:1;
+ card.inert=true;
+ $('prev').disabled=true;$('next').disabled=true;
+ try{
+  await slide('translateX('+dragX+'px)','translateX('+(direction*distance)+'px)',150);
+  index=(index+step+cards.length)%cards.length;
+  render();
+  card.style.transform='translateX('+(-direction*distance)+'px)';
+  await slide(card.style.transform,'translateX(0px)',220);
+ }finally{
+  card.style.transform='';dragX=0;moving=false;card.inert=false;
+  $('prev').disabled=false;$('next').disabled=false;
+ }
+}
+async function resetDrag(){
+ start=null;
+ if(moving)return;
+ moving=true;
+ try{await slide('translateX('+dragX+'px)','translateX(0px)',160);}
+ finally{$('card').style.transform='';dragX=0;moving=false;}
+}
+$('card').addEventListener('click',e=>{
+ if(moving||Date.now()<suppressClickUntil){e.preventDefault();e.stopImmediatePropagation();}
+},true);
 $('front').addEventListener('click',()=>{expanded=true;syncReveal();$('flip-back').focus({preventScroll:true})});
 $('flip-back').addEventListener('click',()=>{expanded=false;syncReveal();$('front').focus({preventScroll:true})});
 $('prev').addEventListener('click',()=>move(-1));$('next').addEventListener('click',()=>move(1));
 $('note').addEventListener('input',()=>{const id=cards[index].id;drafts.set(id,$('note').value);try{localStorage.setItem(key(id),$('note').value);$('save-state').textContent='已儲存'}catch{$('save-state').textContent='儲存失敗，請複製備份'}});
 document.addEventListener('keydown',e=>{if(e.target.matches('textarea,input,[contenteditable="true"]')||e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();move(1)}if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}});
-$('card').addEventListener('touchstart',e=>{start=!e.target.closest('textarea')&&e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
-$('card').addEventListener('touchend',e=>{if(!start)return;const dx=e.changedTouches[0].clientX-start.x,dy=e.changedTouches[0].clientY-start.y;start=null;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)move(dx<0?1:-1)},{passive:true});
-$('card').addEventListener('touchcancel',()=>{start=null},{passive:true});
+$('card').addEventListener('touchstart',e=>{
+ if(moving)return;
+ if(e.touches.length!==1||e.target.closest('textarea,input,#pronounce,#flip-back')){start=null;return;}
+ start={x:e.touches[0].clientX,y:e.touches[0].clientY,axis:null};dragX=0;
+},{passive:true});
+$('card').addEventListener('touchmove',e=>{
+ if(!start||moving)return;
+ if(e.touches.length!==1){resetDrag();return;}
+ const dx=e.touches[0].clientX-start.x,dy=e.touches[0].clientY-start.y;
+ if(!start.axis&&Math.max(Math.abs(dx),Math.abs(dy))>8)start.axis=Math.abs(dx)>Math.abs(dy)*1.2?'x':'y';
+ if(start.axis!=='x')return;
+ if(e.cancelable)e.preventDefault();
+ dragX=dx;suppressClickUntil=Date.now()+500;
+ if(!reduceMotion())$('card').style.transform='translateX('+dx+'px)';
+},{passive:false});
+$('card').addEventListener('touchend',e=>{
+ if(!start||moving)return;
+ const dx=e.changedTouches[0].clientX-start.x,dy=e.changedTouches[0].clientY-start.y;
+ const horizontal=start.axis==='x'||(!start.axis&&Math.abs(dx)>Math.abs(dy)*1.5);
+ start=null;
+ if(horizontal&&Math.abs(dx)>Math.min(65,$('card').getBoundingClientRect().width*.2)){
+  suppressClickUntil=Date.now()+500;move(dx<0?1:-1);
+ }else if(dragX){suppressClickUntil=Date.now()+500;resetDrag();}
+},{passive:true});
+$('card').addEventListener('touchcancel',()=>{if(dragX)suppressClickUntil=Date.now()+500;resetDrag();},{passive:true});
 const speechSupported='speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
 let activeUtterance=null;
 function stopPronunciation(){
