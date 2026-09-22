@@ -91,7 +91,7 @@ async function move(step){
  if(moving)return;
  moving=true;start=null;stopPronunciation();
  const card=$('card');
- card.inert=true;$('prev').disabled=true;$('next').disabled=true;
+ card.inert=true;
  try{
   prepareNeighbor(step);
   const distance=cardDistance();
@@ -102,7 +102,6 @@ async function move(step){
   render();
  }finally{
   card.style.transform='';clearNeighbor();dragX=0;moving=false;card.inert=false;
-  $('prev').disabled=false;$('next').disabled=false;
  }
 }
 async function resetDrag(){
@@ -120,7 +119,6 @@ $('card').addEventListener('click',e=>{
 },true);
 $('front').addEventListener('click',()=>{expanded=true;syncReveal();$('flip-back').focus({preventScroll:true})});
 $('flip-back').addEventListener('click',()=>{expanded=false;syncReveal();$('front').focus({preventScroll:true})});
-$('prev').addEventListener('click',()=>move(-1));$('next').addEventListener('click',()=>move(1));
 $('note').addEventListener('input',()=>{const id=cards[index].id;drafts.set(id,$('note').value);try{localStorage.setItem(key(id),$('note').value);$('save-state').textContent='已儲存'}catch{$('save-state').textContent='儲存失敗，請複製備份'}});
 document.addEventListener('keydown',e=>{if(e.target.matches('textarea,input,[contenteditable="true"]')||e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();move(1)}if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}});
 $('card').addEventListener('touchstart',e=>{

@@ -1,4 +1,4 @@
-// Use base forms for verbs and singular forms for noun headwords. Keep IDs stable to preserve notes.
+// Add new flashcards here. Keep IDs stable to preserve saved notes.
 window.WORDS = [
   {
     "id": "domestication",
@@ -305,6 +305,116 @@ window.WORDS = [
       [
         "There is growing recognition that regular exercise improves mental health.",
         "人們愈來愈認識到，規律運動有助於改善心理健康。"
+      ]
+    ]
+  },
+  {
+    "id": "tenant",
+    "word": "tenant",
+    "part": "名詞 · noun",
+    "phonetic": "/ˈten.ənt/",
+    "meaning": "房客；租戶；承租人",
+    "english": "A person or organization that pays rent to use a building, room, or land.",
+    "examples": [
+      [
+        "The tenant pays rent on the first day of each month.",
+        "這位房客在每個月的第一天付房租。"
+      ],
+      [
+        "The new tenant moved into the apartment yesterday.",
+        "新房客昨天搬進了這間公寓。"
+      ],
+      [
+        "Each tenant has a key to the main entrance.",
+        "每位租戶都有一把大門鑰匙。"
+      ]
+    ]
+  },
+  {
+    "id": "cognitive",
+    "word": "cognitive",
+    "part": "形容詞 · adjective",
+    "phonetic": "/ˈkɑːɡ.nə.tɪv/",
+    "meaning": "認知的；與思考、理解及記憶有關的",
+    "english": "Related to mental processes such as thinking, learning, understanding, and remembering.",
+    "examples": [
+      [
+        "The study focuses on cognitive development in children.",
+        "這項研究著重於兒童的認知發展。"
+      ],
+      [
+        "Memory is an important cognitive ability.",
+        "記憶是一項重要的認知能力。"
+      ],
+      [
+        "The test measures several cognitive skills.",
+        "這項測驗評估多種認知技能。"
+      ]
+    ]
+  },
+  {
+    "id": "neuroscience",
+    "word": "neuroscience",
+    "part": "名詞 · noun",
+    "phonetic": "/ˈnʊr.oʊˌsaɪ.əns/",
+    "meaning": "神經科學",
+    "english": "The scientific study of the brain and the nervous system.",
+    "examples": [
+      [
+        "She studies neuroscience at university.",
+        "她在大學研讀神經科學。"
+      ],
+      [
+        "Neuroscience helps us understand how the brain processes information.",
+        "神經科學幫助我們了解大腦如何處理資訊。"
+      ],
+      [
+        "He read a book about neuroscience and memory.",
+        "他讀了一本關於神經科學與記憶的書。"
+      ]
+    ]
+  },
+  {
+    "id": "empirical",
+    "word": "empirical",
+    "part": "形容詞 · adjective",
+    "phonetic": "/ɪmˈpɪr.ɪ.kəl/",
+    "meaning": "實證的；以觀察或實驗為依據的",
+    "english": "Based on observation, experience, or experiments rather than theory alone.",
+    "examples": [
+      [
+        "We need empirical evidence to support this claim.",
+        "我們需要實證證據來支持這項主張。"
+      ],
+      [
+        "The researchers collected empirical data through experiments.",
+        "研究人員透過實驗蒐集實證資料。"
+      ],
+      [
+        "Her conclusion is based on empirical research.",
+        "她的結論以實證研究為依據。"
+      ]
+    ]
+  },
+  {
+    "id": "longitudinal",
+    "word": "longitudinal",
+    "part": "形容詞 · adjective",
+    "phonetic": "/ˌlɑːn.dʒəˈtuː.dən.əl/",
+    "meaning": "縱向的；長期追蹤的",
+    "english": "Following the same people or things over time; also, running along the length of something.",
+    "examples": [
+      [
+        "The team conducted a longitudinal study of language development.",
+        "這個團隊進行了一項語言發展的長期追蹤研究。"
+      ],
+      [
+        "Longitudinal data can show how habits change over time.",
+        "長期追蹤資料可以顯示習慣如何隨時間改變。"
+      ],
+      [
+        "The diagram shows a longitudinal section of the stem.",
+        "這張圖顯示了莖的縱切面。"
       ]
     ]
   }
