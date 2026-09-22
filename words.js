@@ -29,5 +29,27 @@ window.WORDS = [
       "從她的回應來看，我推測她同意我們的計畫。"
     ]
   ]
+},
+{
+  "id": "over-time",
+  "word": "over time",
+  "part": "介系詞片語（作副詞用） · phrase",
+  "phonetic": "/ˌoʊ.vɚ ˈtaɪm/",
+  "meaning": "隨著時間推移；逐漸",
+  "english": "Gradually, as time passes.",
+  "examples": [
+    [
+      "Your pronunciation will improve over time if you practise regularly.",
+      "如果你經常練習，你的發音會隨著時間逐漸進步。"
+    ],
+    [
+      "Over time, people began to cultivate crops instead of relying entirely on wild plants.",
+      "隨著時間推移，人們開始種植作物，而不再完全依賴野生植物。"
+    ],
+    [
+      "Exposure to salt water can damage steel structures over time.",
+      "長期接觸鹽水會逐漸損壞鋼構。"
+    ]
+  ]
 }
 ];
