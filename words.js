@@ -159,7 +159,7 @@ window.WORDS = [
     "word": "favorable",
     "part": "形容詞 · adjective",
     "phonetic": "/ˈfeɪ.vɚ.ə.bəl/",
-    "meaning": "有利的；適宜的；贊同的、正面的（英式拼字：favourable）",
+    "meaning": "有利的；適宜的；贊同的、正面的",
     "english": "Helpful or suitable for a purpose; expressing approval or a positive opinion.",
     "examples": [
       [
@@ -269,7 +269,7 @@ window.WORDS = [
     "word": "expand",
     "part": "及物／不及物動詞 · verb",
     "phonetic": "/ɪkˈspænd/",
-    "meaning": "擴大、擴展；膨脹；詳細說明（expand on）",
+    "meaning": "擴大、擴展；膨脹；詳細說明",
     "english": "To become or make something larger; to give more details about a topic.",
     "examples": [
       [
@@ -445,7 +445,7 @@ window.WORDS = [
     "word": "correlate",
     "part": "及物／不及物動詞；名詞 · verb / noun",
     "phonetic": "動詞 /ˈkɔːr.ə.leɪt/；名詞 /ˈkɔːr.ə.lət/",
-    "meaning": "動詞：相互關聯；找出…之間的關聯（correlate with）；名詞：相關事物、相關因素",
+    "meaning": "動詞：相互關聯；找出…之間的關聯；名詞：相關事物、相關因素",
     "english": "To be related or vary together, or to establish a relationship between things; as a noun, something associated with something else.",
     "examples": [
       [
@@ -533,7 +533,7 @@ window.WORDS = [
     "word": "distinct",
     "part": "形容詞 · adjective",
     "phonetic": "/dɪˈstɪŋkt/",
-    "meaning": "不同的、分別的（distinct from）；清楚的、明顯的；確切的、明確的",
+    "meaning": "不同的、分別的；清楚的、明顯的；確切的、明確的",
     "english": "Clearly different or separate; easy to notice; or definite and unmistakable.",
     "examples": [
       [
@@ -555,7 +555,7 @@ window.WORDS = [
     "word": "complementary",
     "part": "形容詞 · adjective",
     "phonetic": "/ˌkɑːm.pləˈmen.tər.i/",
-    "meaning": "互補的、相輔相成的；（角度）互餘的（合計 90 度）。注意：complimentary 才是「免費贈送的／讚美的」",
+    "meaning": "互補的、相輔相成的；（角度）互餘的。",
     "english": "Combining well because of different qualities; in geometry, describing angles whose measures add up to 90 degrees.",
     "examples": [
       [
@@ -599,7 +599,7 @@ window.WORDS = [
     "word": "integrate",
     "part": "及物／不及物動詞 · verb",
     "phonetic": "/ˈɪn.tə.ɡreɪt/",
-    "meaning": "整合、結合（integrate A into B／with B）；融入、使融入；使不同群體融合；（數學）求積分",
+    "meaning": "整合、結合；融入、使融入；使不同群體融合；（數學）求積分",
     "english": "To combine parts into a whole; to become or help someone become part of a group or society; in mathematics, to find an integral.",
     "examples": [
       [
@@ -621,7 +621,7 @@ window.WORDS = [
     "word": "curriculum",
     "part": "名詞 · noun",
     "phonetic": "/kəˈrɪk.jə.ləm/",
-    "meaning": "（學校或科目的）課程、課程綱要；全部課程（單數 curriculum；複數 curricula 或 curriculums）",
+    "meaning": "（學校或科目的）課程、課程綱要；全部課程",
     "english": "The subjects taught and the planned content of a course or educational program.",
     "examples": [
       [
