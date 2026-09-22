@@ -34,7 +34,7 @@ main:has(#front:not([hidden]))>.card-stage{
 }
 :is(#word,[data-card-id="word"]){
  font-family:"Nunito",ui-rounded,"Arial Rounded MT Bold","Trebuchet MS",sans-serif;
- font-size:clamp(1.9rem,8vw,3.3rem);
+ font-size:clamp(2.2rem,9.2vw,3.8rem);
  font-weight:800;
  letter-spacing:-.035em;
  line-height:1.2;

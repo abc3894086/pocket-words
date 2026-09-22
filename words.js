@@ -463,28 +463,6 @@ window.WORDS = [
     ]
   },
   {
-    "id": "neuro",
-    "word": "neuro-",
-    "part": "字首／構詞成分 · prefix / combining form",
-    "phonetic": "/nʊr.oʊ/",
-    "meaning": "神經的；與神經系統有關的（常用來構成 neuroscience、neuroplasticity 等詞）",
-    "english": "A word-forming element meaning related to nerves or the nervous system.",
-    "examples": [
-      [
-        "The prefix neuro- refers to nerves or the nervous system.",
-        "字首 neuro- 指神經或神經系統。"
-      ],
-      [
-        "Neuroscience combines neuro- with science.",
-        "Neuroscience 由 neuro- 與 science 組成，意思是神經科學。"
-      ],
-      [
-        "In neuroplasticity, neuro- identifies the nervous system as the focus.",
-        "在 neuroplasticity（神經可塑性）一詞中，neuro- 表明其對象是神經系統。"
-      ]
-    ]
-  },
-  {
     "id": "manipulation",
     "word": "manipulation",
     "part": "名詞 · noun",
