@@ -593,5 +593,71 @@ window.WORDS = [
         "三十度與六十度的角互為餘角。"
       ]
     ]
+  },
+  {
+    "id": "metacognitive",
+    "word": "metacognitive",
+    "part": "形容詞 · adjective",
+    "phonetic": "/ˌmet.əˈkɑːɡ.nə.tɪv/",
+    "meaning": "後設認知的；與覺察、監控及調整自身思考或學習過程有關的（亦作 meta-cognitive）",
+    "english": "Relating to awareness and control of one's own thinking and learning processes.",
+    "examples": [
+      [
+        "Planning how to study is a metacognitive strategy.",
+        "規劃如何讀書是一種後設認知策略。"
+      ],
+      [
+        "She uses metacognitive skills to identify gaps in her understanding.",
+        "她運用後設認知技能找出自己理解上的不足。"
+      ],
+      [
+        "Reflecting on mistakes can help students develop metacognitive awareness.",
+        "反思錯誤可以幫助學生培養後設認知覺察能力。"
+      ]
+    ]
+  },
+  {
+    "id": "integrate",
+    "word": "integrate",
+    "part": "及物／不及物動詞 · verb",
+    "phonetic": "/ˈɪn.tə.ɡreɪt/",
+    "meaning": "整合、結合（integrate A into B／with B）；融入、使融入；使不同群體融合；（數學）求積分",
+    "english": "To combine parts into a whole; to become or help someone become part of a group or society; in mathematics, to find an integral.",
+    "examples": [
+      [
+        "The teacher integrates vocabulary practice into every lesson.",
+        "這位老師把單字練習融入每一堂課。"
+      ],
+      [
+        "Community activities help newcomers integrate into local life.",
+        "社區活動幫助新來的人融入當地生活。"
+      ],
+      [
+        "The students learned to integrate a function with respect to x.",
+        "學生們學會了對一個函數就 x 求積分。"
+      ]
+    ]
+  },
+  {
+    "id": "curriculum",
+    "word": "curriculum",
+    "part": "名詞 · noun",
+    "phonetic": "/kəˈrɪk.jə.ləm/",
+    "meaning": "（學校或科目的）課程、課程綱要；全部課程（單數 curriculum；複數 curricula 或 curriculums）",
+    "english": "The subjects taught and the planned content of a course or educational program.",
+    "examples": [
+      [
+        "The school has added coding to its curriculum.",
+        "這所學校已將程式設計加入課程。"
+      ],
+      [
+        "Teachers are reviewing the science curriculum.",
+        "老師們正在檢討自然科的課程內容。"
+      ],
+      [
+        "The study compares the curricula of three universities.",
+        "這項研究比較了三所大學的課程。"
+      ]
+    ]
   }
 ];
