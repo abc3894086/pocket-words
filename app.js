@@ -18,29 +18,73 @@ function render(){
  syncReveal();
 }
 function syncReveal(){if(!expanded)stopPronunciation();$('answer').hidden=!expanded;$('front').hidden=expanded;}
-let moving=false,dragX=0,suppressClickUntil=0;
+let moving=false,dragX=0,suppressClickUntil=0,neighbor=null,neighborStep=0;
+const stage=document.createElement('div');
+stage.className='card-stage';
+$('card').before(stage);stage.append($('card'));
 const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-async function slide(from,to,duration){
- const card=$('card');
- if(reduceMotion()||!card.animate){card.style.transform=to;return;}
- const animation=card.animate([{transform:from},{transform:to}],{duration,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
- try{await animation.finished;}catch{}finally{card.style.transform=to;animation.cancel();}
+const cardDistance=()=>$('card').getBoundingClientRect().width+16;
+function clearNeighbor(){
+ if(neighbor)neighbor.remove();
+ neighbor=null;neighborStep=0;stage.style.minHeight='';
+}
+function prepareNeighbor(step){
+ if(neighbor&&neighborStep===step)return;
+ clearNeighbor();
+ const c=cards[(index+step+cards.length)%cards.length];
+ neighbor=$('card').cloneNode(true);
+ neighbor.classList.add('card-neighbor');
+ neighbor.style.transform='';
+ neighbor.inert=true;neighbor.setAttribute('aria-hidden','true');
+ const find=id=>neighbor.querySelector('[id="'+id+'"]');
+ for(const [id,value] of Object.entries({'word':c.word,'back-word':c.word,'part':c.part,'phonetic':c.phonetic,'meaning':c.meaning,'english':c.english}))find(id).textContent=value;
+ find('front').hidden=expanded;find('answer').hidden=!expanded;
+ find('speech-status').hidden=true;find('pronounce').dataset.speaking='false';
+ find('examples').replaceChildren(...c.examples.map(([en,zh])=>{
+  const li=document.createElement('li');
+  for(const [text,lang] of [[en,'en'],[zh,'zh-Hant']]){const p=document.createElement('p');p.textContent=text;p.lang=lang;li.append(p);}
+  return li;
+ }));
+ try{find('note').value=drafts.has(c.id)?drafts.get(c.id):(localStorage.getItem(key(c.id))||'');}
+ catch{find('note').value=drafts.get(c.id)||'';}
+ find('save-state').textContent='自動儲存';
+ // Preserve styling without introducing duplicate IDs into the document.
+ for(const el of [neighbor,...neighbor.querySelectorAll('[id]')]){
+  if(el.id){el.dataset.cardId=el.id;el.removeAttribute('id');}
+ }
+ neighborStep=step;
+ neighbor.style.transform='translateX('+(step*cardDistance())+'px)';
+ stage.append(neighbor);
+ stage.style.minHeight=Math.max($('card').offsetHeight,neighbor.offsetHeight)+'px';
+}
+function positionPair(x){
+ dragX=x;
+ if(reduceMotion())return;
+ if(x)prepareNeighbor(x<0?1:-1);
+ $('card').style.transform='translateX('+x+'px)';
+ if(neighbor)neighbor.style.transform='translateX('+(x+neighborStep*cardDistance())+'px)';
+}
+async function animateCard(card,to,duration){
+ const transform='translateX('+to+'px)';
+ if(reduceMotion()||!card.animate){card.style.transform=transform;return;}
+ const animation=card.animate([{transform:card.style.transform||'translateX(0px)'},{transform}],{duration,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
+ try{await animation.finished;}catch{}finally{card.style.transform=transform;animation.cancel();}
 }
 async function move(step){
  if(moving)return;
  moving=true;start=null;stopPronunciation();
- const card=$('card'),distance=card.getBoundingClientRect().width+48;
- const direction=step>0?-1:1;
- card.inert=true;
- $('prev').disabled=true;$('next').disabled=true;
+ const card=$('card');
+ card.inert=true;$('prev').disabled=true;$('next').disabled=true;
  try{
-  await slide('translateX('+dragX+'px)','translateX('+(direction*distance)+'px)',150);
+  prepareNeighbor(step);
+  const distance=cardDistance();
+  if(!reduceMotion())neighbor.style.transform='translateX('+(dragX+step*distance)+'px)';
+  // Start both animations in the same frame, keeping the gap fixed.
+  await Promise.all([animateCard(card,-step*distance,280),animateCard(neighbor,0,280)]);
   index=(index+step+cards.length)%cards.length;
   render();
-  card.style.transform='translateX('+(-direction*distance)+'px)';
-  await slide(card.style.transform,'translateX(0px)',220);
  }finally{
-  card.style.transform='';dragX=0;moving=false;card.inert=false;
+  card.style.transform='';clearNeighbor();dragX=0;moving=false;card.inert=false;
   $('prev').disabled=false;$('next').disabled=false;
  }
 }
@@ -48,8 +92,11 @@ async function resetDrag(){
  start=null;
  if(moving)return;
  moving=true;
- try{await slide('translateX('+dragX+'px)','translateX(0px)',160);}
- finally{$('card').style.transform='';dragX=0;moving=false;}
+ try{
+  const motions=[animateCard($('card'),0,200)];
+  if(neighbor)motions.push(animateCard(neighbor,neighborStep*cardDistance(),200));
+  await Promise.all(motions);
+ }finally{$('card').style.transform='';clearNeighbor();dragX=0;moving=false;}
 }
 $('card').addEventListener('click',e=>{
  if(moving||Date.now()<suppressClickUntil){e.preventDefault();e.stopImmediatePropagation();}
@@ -71,8 +118,8 @@ $('card').addEventListener('touchmove',e=>{
  if(!start.axis&&Math.max(Math.abs(dx),Math.abs(dy))>8)start.axis=Math.abs(dx)>Math.abs(dy)*1.2?'x':'y';
  if(start.axis!=='x')return;
  if(e.cancelable)e.preventDefault();
- dragX=dx;suppressClickUntil=Date.now()+500;
- if(!reduceMotion())$('card').style.transform='translateX('+dx+'px)';
+ suppressClickUntil=Date.now()+500;
+ positionPair(Math.max(-cardDistance(),Math.min(cardDistance(),dx)));
 },{passive:false});
 $('card').addEventListener('touchend',e=>{
  if(!start||moving)return;
