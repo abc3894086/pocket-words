@@ -51,5 +51,27 @@ window.WORDS = [
       "長期接觸鹽水會逐漸損壞鋼構。"
     ]
   ]
+},
+{
+  "id": "settlement",
+  "word": "settlement",
+  "part": "名詞 · noun",
+  "phonetic": "/ˈset.əl.mənt/",
+  "meaning": "聚落、定居點；定居；和解、協議；款項結清、清償",
+  "english": "A place where people establish a community; an agreement that resolves a dispute; or the payment of money owed.",
+  "examples": [
+    [
+      "The development of agriculture allowed people to establish permanent settlements.",
+      "農業的發展使人們得以建立永久聚落。"
+    ],
+    [
+      "The two companies reached a settlement after months of negotiations.",
+      "經過數個月的協商，兩家公司達成了和解。"
+    ],
+    [
+      "We received a payment in full settlement of the outstanding balance.",
+      "我們收到一筆款項，已全數結清未付餘額。"
+    ]
+  ]
 }
 ];
