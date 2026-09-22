@@ -1,5 +1,22 @@
 'use strict';
-const cards=window.WORDS;
+function shuffledCards(source){
+ const result=[...source];
+ for(let i=result.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [result[i],result[j]]=[result[j],result[i]];
+ }
+ // Start with a different word than the previous opening when storage is available.
+ try{
+  const previous=localStorage.getItem('pocket-words:last-first:v1');
+  if(result.length>1&&result[0].id===previous){
+   const j=1+Math.floor(Math.random()*(result.length-1));
+   [result[0],result[j]]=[result[j],result[0]];
+  }
+  if(result.length)localStorage.setItem('pocket-words:last-first:v1',result[0].id);
+ }catch{}
+ return result;
+}
+const cards=shuffledCards(window.WORDS);
 const $=id=>document.getElementById(id);
 let index=0,expanded=false,start=null;
 const drafts=new Map();
